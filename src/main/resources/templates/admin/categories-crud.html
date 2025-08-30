@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аптека - Управление категориями</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admin/dashboard">Админка Аптеки</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/admin/drugs">Препараты</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/admin/categories">Категории</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/manufacturers">Производители</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/users">Пользователи</a></li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link" onclick="AuthUtils.logout()">Выйти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2>Управление категориями</h2>
+    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">Добавить категорию</button>
+
+    <!-- Таблица -->
+    <div class="table-responsive">
+        <table class="table table-hover mt-3">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody id="categoriesTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Модалка добавления -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="addCategoryForm">
+                <div class="modal-header">
+                    <h5 class="modal-title">Новая категория</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label">Название</label>
+                        <input type="text" class="form-control" id="categoryName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="categoryDescription" class="form-label">Описание</label>
+                        <textarea class="form-control" id="categoryDescription" rows="3"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Модалка редактирования -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="editCategoryForm">
+                <div class="modal-header">
+                    <h5 class="modal-title">Редактировать категорию</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editCategoryId">
+
+                    <div class="mb-3">
+                        <label for="editCategoryName" class="form-label">Название</label>
+                        <input type="text" class="form-control" id="editCategoryName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editCategoryDescription" class="form-label">Описание</label>
+                        <textarea class="form-control" id="editCategoryDescription" rows="3"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/auth-utils.js"></script>
+<script src="/js/categories.js"></script>
+</body>
+</html>

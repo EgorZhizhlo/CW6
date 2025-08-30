@@ -1,0 +1,18 @@
+package com.example.pharmacy.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class RegisterRequest {
+
+    @NotBlank(message = "Username is required")
+    private String username;
+
+    @NotBlank(message = "Password is required")
+    private String password;
+
+    private String role = "USER"; // по умолчанию USER
+}
