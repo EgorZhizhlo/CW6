@@ -29,12 +29,6 @@ public class DrugController {
         }
     }
 
-    @GetMapping("/search")
-    public List<DrugDto> search(@RequestParam(required = false) String name,
-                                @RequestParam(required = false) String internationalName) {
-        return drugService.search(name, internationalName);
-    }
-
     @PostMapping
     public ResponseEntity<DrugDto> create(@RequestBody DrugDto drugDto) {
         return ResponseEntity.ok(drugService.create(drugDto));

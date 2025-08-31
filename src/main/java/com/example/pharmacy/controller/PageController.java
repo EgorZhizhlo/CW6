@@ -44,6 +44,12 @@ public class PageController {
         return "drug-details"; // создаёшь drug-details.html
     }
 
+    @GetMapping("/manufacturers")
+    public String manufacturers(Model model) {
+        addRoleToModel(model);
+        return "manufacturers";
+    }
+
     @GetMapping("/categories")
     public String categories(Model model) {
         addRoleToModel(model);

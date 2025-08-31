@@ -9,4 +9,5 @@ public interface ManufacturerService {
     ManufacturerDto create(ManufacturerDto manufacturerDto);
     ManufacturerDto update(Long id, ManufacturerDto manufacturerDto);
     void delete(Long id);
+    long count();
 }

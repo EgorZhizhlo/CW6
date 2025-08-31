@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p><strong>Форма выпуска:</strong> ${drug.form || "-"}</p>
                             <p><strong>Описание:</strong> ${drug.description || "Нет описания"}</p>
                             <p><strong>Показания:</strong> ${drug.indications || "-"}</p>
-                            <p><strong>Противопоказания:</strong> ${drug.contraindications || "-"}</p>
-                            <p><strong>Побочные эффекты:</strong> ${drug.sideEffects || "-"}</p>
                             <a href="/drugs/${drug.id}" class="btn btn-primary">Подробнее</a>
                         </div>
                     </div>

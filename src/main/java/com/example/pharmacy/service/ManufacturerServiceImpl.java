@@ -25,6 +25,11 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     }
 
     @Override
+    public long count() {
+        return manufacturerRepository.count();
+    }
+
+    @Override
     public ManufacturerDto getById(Long id) {
         return manufacturerRepository.findById(id)
                 .map(this::toDto)

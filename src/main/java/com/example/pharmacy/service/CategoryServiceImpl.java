@@ -25,6 +25,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public long count() {
+        return categoryRepository.count();
+    }
+
+    @Override
     public CategoryDto getById(Long id) {
         return categoryRepository.findById(id)
                 .map(this::toDto)

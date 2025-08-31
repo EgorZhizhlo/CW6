@@ -31,6 +31,11 @@ public class DrugServiceImpl implements DrugService {
     }
 
     @Override
+    public long count() {
+        return drugRepository.count();
+    }
+
+    @Override
     public DrugDto getById(Long id) {
         return drugRepository.findById(id)
                 .map(this::toDto)

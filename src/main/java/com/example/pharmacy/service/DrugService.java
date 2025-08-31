@@ -10,4 +10,5 @@ public interface DrugService {
     DrugDto create(DrugDto drugDto);
     DrugDto update(Long id, DrugDto drugDto);
     void delete(Long id);
+    long count();
 }
